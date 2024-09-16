@@ -21,11 +21,13 @@ namespace Util.Extensions
         {
             #region Repository
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<ISettingsRepository, SettingsRepository>();
             #endregion
 
 
             #region Service
             services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<ISettingsService, SettingsService>();
             #endregion
 
         }
@@ -40,6 +42,10 @@ namespace Util.Extensions
 
                 cfg.CreateMap<CustomerEntity, CustomerViewModel>();
                 cfg.CreateMap<CustomerInputModel, CustomerEntity>();
+                cfg.CreateMap<CustomerInputModel, CustomerViewModel>();
+
+                cfg.CreateMap<SettingsEntity, SettingsModel>();
+                cfg.CreateMap<SettingsModel, SettingsEntity>();
 
 
             });
